@@ -1,16 +1,19 @@
 #ifndef DRIVE_H
 #define DRIVE_H
 
-// Driver conf
-int pwmFreq     = 333;
-int pulseMin    = 800;
-int pulseMax    = 2200;
-
-// Controller conf
-int nullRange   = 10;
+// Include Adafruit library
+#include <Adafruit_PWMServoDriver.h>
 
 // Functions
 void initPCA();
-
+void calibESC();
+void initServo();
+void control_trx4();
+int convert_value(
+    int position, 
+    float resolution, 
+    float offset=0, 
+    int inverse=0
+    );
 
 #endif

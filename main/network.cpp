@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <WiFi.h>
-#include "conf.h"
+#include "network.h"
+#include "global.h"
 
-// Initialize WiFi
 void initWiFi() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
@@ -10,7 +10,7 @@ void initWiFi() {
   Serial.print("Connecting to WiFi...");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
-    delay(1000);
+    delay(100);
   }
   Serial.println("");
   Serial.println(WiFi.localIP());
