@@ -5,4 +5,6 @@ extern char* ps4Mac;
 // Replace with your network credentials
 extern const char* ssid;
 extern const char* password;
+
+float v_batt();
 #endif

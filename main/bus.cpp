@@ -2,8 +2,8 @@
 #include <Wire.h>
 #include "bus.h"
 
-#define i2cSdaPin 18
-#define i2cSclPin 23
+#define i2cSdaPin 21
+#define i2cSclPin 22
 
 void initI2C(){
   if (!Wire.begin(i2cSdaPin, i2cSclPin)) {

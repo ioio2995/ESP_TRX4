@@ -8,7 +8,10 @@
 void initPCA();
 void calibESC();
 void initServo();
+void control_esc();
+void control_steering();
 void control_trx4();
+float get_voltage();
 int convert_value(
     int position, 
     float resolution, 

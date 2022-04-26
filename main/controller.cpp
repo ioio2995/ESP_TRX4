@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "controller.h"
 #include "global.h"
+#include "lcd.h"
 
 //Controler PS4
 // Color RGB LED PS4
@@ -14,13 +15,22 @@ void initPS4()
     PS4.begin(ps4Mac);
     Serial.println("");
     Serial.print("Connecting to PS4 Controller...");
+    print_LCD("Waiting Controller..");
+    byte i=0;
     while (!PS4.isConnected()) {
         Serial.print(".");
-        delay(100);
+        print_LCD(".",i,1);
+        if ( i == 3) {
+            i=0;
+            print_LCD("      ",i,1);
+        } 
+        i=++i;
+        delay(1000);
     }
     PS4.setLed(rgbR, rgbG, rgbB);
     PS4.sendToController();
     Serial.println("PS4 Controler Found!");
+    print_LCD("PS4 Controler Found!");
 }
 
 // Send Info PS4 Controler
